@@ -7,6 +7,12 @@
 
 A beautiful, high-performance animated number transition component for React Native. Perfect for displaying counters, prices, statistics, and any numeric values with style! 💫
 
+## Demo 🎥
+
+<p align="center">
+  https://github.com/user-attachments/assets/be33dc21-5606-47fa-bcad-935138e797a2
+</p>
+
 ## Features ✨
 
 - 🚀 Smooth, fluid animations powered by React Native Reanimated
