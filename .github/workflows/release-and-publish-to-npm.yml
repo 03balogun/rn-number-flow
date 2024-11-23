@@ -1,0 +1,38 @@
+name: 'Release & Publish to NPM'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.head_commit.message, 'Merge pull request')
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+      - name: Install the dependencies
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: Initialize Git user
+        run: |
+          git config --global user.email "03balogun@gmail.com"
+          git config --global user.name "Release God"
+      - name: Initialize npm config
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Release
+        run: npm run release --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: End Message
+        run: echo "Release process completed"
