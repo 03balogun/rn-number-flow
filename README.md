@@ -1,33 +1,126 @@
-# rn-number-flow
+# RN Number Flow 🔢
 
-A component to transition numbers.
+[![npm version](https://badge.fury.io/js/rn-number-flow.svg)](https://badge.fury.io/js/rn-number-flow)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg)
+[![runs with expo](https://img.shields.io/badge/Runs%20with%20Expo-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.dev/)
 
-## Installation
+A beautiful, high-performance animated number transition component for React Native. Perfect for displaying counters, prices, statistics, and any numeric values with style! 💫
 
-```sh
+## Features ✨
+
+- 🚀 Smooth, fluid animations powered by React Native Reanimated
+- 🎨 Highly customizable styles and animations
+- 📱 Cross-platform support (iOS & Android)
+- 🔧 Easy to configure animation parameters
+- ⚡️ Optimized performance
+- 🎯 TypeScript support
+- 📦 Zero dependencies (except for React Native Reanimated)
+
+## Installation 📦
+
+```bash
+# Using npm
 npm install rn-number-flow
+
+# Using yarn
+yarn add rn-number-flow
 ```
 
-## Usage
+Make sure you have [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/) installed and configured in your project.
 
+## Usage 💻
 
-```js
-import { multiply } from 'rn-number-flow';
+```jsx
+import AnimatedCounter from 'rn-number-flow';
 
-// ...
+// Basic usage
+<AnimatedCounter value="1234" />
 
-const result = await multiply(3, 7);
+// With custom styling
+<AnimatedCounter
+  value="1234.56"
+  style={{ fontSize: 24, color: '#007AFF' }}
+  separatorStyle={{ color: '#666' }}
+/>
+
+// With custom animation config
+<AnimatedCounter
+  value="9999"
+  animationConfig={{
+    enabled: true,
+    animateOnMount: true,
+    digitDelay: 50,
+    mass: 0.8,
+    stiffness: 75,
+    damping: 15
+  }}
+/>
 ```
 
+## Props 🛠️
 
-## Contributing
+| Prop | Type | Description |
+|------|------|-------------|
+| value | string | The numeric value to display |
+| style | TextStyle | Style for the digits |
+| separatorStyle | TextStyle | Style for non-numeric characters (like commas, decimals) |
+| animationConfig | AnimationConfig | Configuration for animations |
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+### AnimationConfig Options
 
-## License
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| enabled | boolean | true | Enable/disable animations |
+| animateOnMount | boolean | true | Animate on initial render |
+| digitDelay | number | 20 | Delay between digit animations (ms) |
+| mass | number | 0.8 | Spring animation mass |
+| stiffness | number | 75 | Spring animation stiffness |
+| damping | number | 15 | Spring animation damping |
+| reduceMotion | ReduceMotion | System | Respect system's reduce motion settings |
 
-MIT
+## Examples 🎯
+
+### Basic Counter
+```jsx
+import AnimatedCounter from 'rn-number-flow';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <View>
+      <AnimatedCounter value={count.toString()} />
+      <Button title="Increment" onPress={() => setCount(c => c + 1)} />
+    </View>
+  );
+}
+```
+
+### Price Display
+```jsx
+<AnimatedCounter
+  value="$1,234.99"
+  style={{ fontSize: 32, fontWeight: 'bold' }}
+  separatorStyle={{ color: '#666' }}
+  animationConfig={{ digitDelay: 50 }}
+/>
+```
+
+## Contributing 🤝
+
+Contributions are welcome! Feel free to open issues and submit PRs.
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## License 📄
+
+MIT 
 
 ---
 
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+Made with ❤️ for the React Native community.
