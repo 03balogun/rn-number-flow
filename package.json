@@ -1,6 +1,6 @@
 {
   "name": "rn-number-flow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A component to transition numbers.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
