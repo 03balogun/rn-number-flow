@@ -132,3 +132,4 @@ MIT
 ---
 
 Made with ❤️ for the React Native community.
+
