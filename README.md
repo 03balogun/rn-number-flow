@@ -9,11 +9,8 @@ A beautiful, high-performance animated number transition component for React Nat
 
 ## Demo 🎥
 
-<p align="center">
+  <video src='https://github.com/user-attachments/assets/be33dc21-5606-47fa-bcad-935138e797a2' width="400" controls="controls" style="max-width: 100%;"></video>
   
-  https://github.com/user-attachments/assets/be33dc21-5606-47fa-bcad-935138e797a2
-  
-</p>
 
 ## Features ✨
 
