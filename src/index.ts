@@ -1,3 +1,3 @@
-import { AnimatedCounter } from './AnimatedCounter';
+import { NumberFlow } from './NumberFlow';
 
-export default AnimatedCounter;
+export default NumberFlow;

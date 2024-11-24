@@ -9,7 +9,7 @@ A beautiful, high-performance animated number transition component for React Nat
 
 ## Demo 🎥
 
-  <video src='https://github.com/user-attachments/assets/be33dc21-5606-47fa-bcad-935138e797a2' width="400" controls="controls" style="max-width: 100%;"></video>
+  <img src='https://github.com/user-attachments/assets/71bf7f32-1900-497f-9a4a-b7240db75a4a' width="400" style="max-width: 100%;" />
   
 
 ## Features ✨
@@ -37,20 +37,20 @@ Make sure you have [react-native-reanimated](https://docs.swmansion.com/react-na
 ## Usage 💻
 
 ```jsx
-import AnimatedCounter from 'rn-number-flow';
+import NumberFlow from 'rn-number-flow';
 
 // Basic usage
-<AnimatedCounter value="1234" />
+<NumberFlow value="1234" />
 
 // With custom styling
-<AnimatedCounter
+<NumberFlow
   value="1234.56"
   style={{ fontSize: 24, color: '#007AFF' }}
   separatorStyle={{ color: '#666' }}
 />
 
 // With custom animation config
-<AnimatedCounter
+<NumberFlow
   value="9999"
   animationConfig={{
     enabled: true,
@@ -88,14 +88,14 @@ import AnimatedCounter from 'rn-number-flow';
 
 ### Basic Counter
 ```jsx
-import AnimatedCounter from 'rn-number-flow';
+import NumberFlow from 'rn-number-flow';
 
 function Counter() {
   const [count, setCount] = useState(0);
   
   return (
     <View>
-      <AnimatedCounter value={count.toString()} />
+      <NumberFlow value={count.toString()} />
       <Button title="Increment" onPress={() => setCount(c => c + 1)} />
     </View>
   );
@@ -104,7 +104,7 @@ function Counter() {
 
 ### Price Display
 ```jsx
-<AnimatedCounter
+<NumberFlow
   value="$1,234.99"
   style={{ fontSize: 32, fontWeight: 'bold' }}
   separatorStyle={{ color: '#666' }}

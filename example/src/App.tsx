@@ -4,7 +4,7 @@ import Reanimated, {
   LinearTransition,
   ReduceMotion,
 } from 'react-native-reanimated';
-import AnimatedCounter from 'rn-number-flow';
+import NumberFlow from 'rn-number-flow';
 
 const intNumber = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -25,7 +25,7 @@ export default function App() {
       >
         {/* Default animation (animate on mount) */}
         <Text>Default animation (with mount):</Text>
-        <AnimatedCounter
+        <NumberFlow
           value={intNumber.format(value)}
           style={styles.font42}
           separatorStyle={styles.separatorGreen}
@@ -37,7 +37,7 @@ export default function App() {
 
         {/* Fast animation (no mount animation) */}
         <Text>Fast animation (no mount):</Text>
-        <AnimatedCounter
+        <NumberFlow
           value={intNumber.format(value)}
           style={styles.font32}
           separatorStyle={styles.separatorBlue}
@@ -53,7 +53,7 @@ export default function App() {
 
         {/* Slow animation */}
         <Text>Slow animation (with mount):</Text>
-        <AnimatedCounter
+        <NumberFlow
           value={intNumber.format(value)}
           style={styles.font24}
           separatorStyle={styles.separatorRed}
@@ -68,7 +68,7 @@ export default function App() {
           }}
         />
 
-        <AnimatedCounter
+        <NumberFlow
           value={intNumber.format(value)}
           style={styles.font20}
           separatorStyle={styles.separatorRed}
@@ -87,7 +87,7 @@ export default function App() {
         {mountNewCounter && (
           <>
             <Text>Newly mounted counter:</Text>
-            <AnimatedCounter
+            <NumberFlow
               value={intNumber.format(value)}
               style={styles.font20}
               separatorStyle={styles.separatorPurple}

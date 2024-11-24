@@ -38,7 +38,7 @@ interface AnimationConfig {
   reduceMotion?: ReduceMotion;
 }
 
-interface AnimatedCounterProps {
+interface NumberFlowProps {
   /** The value to be displayed */
   value: string;
   /** Style for the entire counter */
@@ -151,13 +151,8 @@ const CharacterList = memo(
   }
 );
 
-export const AnimatedCounter = memo(
-  ({
-    value,
-    style,
-    separatorStyle,
-    animationConfig = {},
-  }: AnimatedCounterProps) => {
+export const NumberFlow = memo(
+  ({ value, style, separatorStyle, animationConfig = {} }: NumberFlowProps) => {
     const [textLayout, setTextLayout] = useState<TextLayoutLine | undefined>();
     const [isMounted, setIsMounted] = useState(false);
 
