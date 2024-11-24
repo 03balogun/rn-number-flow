@@ -253,6 +253,14 @@ export const NumberFlow = memo(
           style={styles.counterContainer}
         >
           {splitValue.map((char, index) => {
+            if (char === ' ') {
+              return (
+                <Character key={index} style={charStyle}>
+                  {' '}
+                </Character>
+              );
+            }
+
             if (!isNaN(Number(char))) {
               return shouldAnimate ? (
                 <CharacterList
