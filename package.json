@@ -1,17 +1,11 @@
 {
   "name": "rn-number-flow",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A component to transition numbers.",
-  "source": "./src/index",
-  "main": "./lib/commonjs/index.js",
-  "module": "./lib/module/index.js",
-  "types": "./lib/typescript/module/src/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/module/index.js",
-      "require": "./lib/commonjs/index.js"
-    }
-  },
+  "source": "src/index",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/module/src/index.d.ts",
   "files": [
     "src",
     "lib",
