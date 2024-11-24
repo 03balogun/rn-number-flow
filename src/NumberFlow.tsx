@@ -12,6 +12,8 @@ import {
   StyleSheet,
   type TextStyle,
   type TextLayoutLine,
+  type NativeSyntheticEvent,
+  type TextLayoutEventData,
 } from 'react-native';
 import Reanimated, {
   LinearTransition,
@@ -47,6 +49,8 @@ interface NumberFlowProps {
   separatorStyle?: TextStyle;
   /** Animation configuration */
   animationConfig?: AnimationConfig;
+  /** Enable/disable text auto-fitting based on ascender (default: false) */
+  autoFitText?: boolean;
 }
 
 const DIGITS = [...Array(10).keys()];
@@ -152,8 +156,14 @@ const CharacterList = memo(
 );
 
 export const NumberFlow = memo(
-  ({ value, style, separatorStyle, animationConfig = {} }: NumberFlowProps) => {
-    const [textLayout, setTextLayout] = useState<TextLayoutLine | undefined>();
+  ({
+    value,
+    style,
+    separatorStyle,
+    animationConfig = {},
+    autoFitText = false,
+  }: NumberFlowProps) => {
+    const [textLayout, setTextLayout] = useState<TextLayoutLine>();
     const [isMounted, setIsMounted] = useState(false);
 
     const {
@@ -177,13 +187,12 @@ export const NumberFlow = memo(
     const isInitialRender = !animateOnMount && !isMounted;
 
     const fontSize = useMemo(() => {
-      if (textLayout?.ascender) {
+      if (autoFitText && textLayout?.ascender) {
         return Math.round(textLayout.ascender);
       }
-      return Math.round(Number(style?.fontSize || 16));
-    }, [textLayout?.ascender, style?.fontSize]);
 
-    const splitValue = useMemo(() => value.split(''), [value]);
+      return Math.round(Number(style?.fontSize || 16));
+    }, [autoFitText, textLayout?.ascender, style?.fontSize]);
 
     const lineHeight = useMemo(() => {
       return Math.round(fontSize * 1.2);
@@ -209,25 +218,37 @@ export const NumberFlow = memo(
       return `Current value is ${value}`;
     }, [value]);
 
-    const handleTextLayout = useCallback((e: any) => {
-      setTextLayout(e.nativeEvent.lines[0]);
-    }, []);
+    const splitValue = useMemo(() => {
+      return value.split('');
+    }, [value]);
+
+    const handleTextLayout = useCallback(
+      (e: NativeSyntheticEvent<TextLayoutEventData>) => {
+        if (autoFitText) {
+          setTextLayout(e.nativeEvent.lines[0]);
+        }
+      },
+      [autoFitText]
+    );
 
     return (
       <>
-        <Character
-          aria-hidden
-          onTextLayout={handleTextLayout}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          style={[styles.hiddenCounter, style]}
-        >
-          {value}
-        </Character>
+        {autoFitText && (
+          <Character
+            aria-hidden
+            onTextLayout={handleTextLayout}
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            style={[styles.hiddenCounter, style]}
+          >
+            {value}
+          </Character>
+        )}
         <View
           accessible={true}
           accessibilityRole="text"
           accessibilityLabel={accessibleValue}
+          accessibilityHint={accessibleValue}
           accessibilityLiveRegion="polite"
           style={styles.counterContainer}
         >

@@ -63,26 +63,27 @@ import NumberFlow from 'rn-number-flow';
 />
 ```
 
-## Props 🛠️
+## Props 📝
 
-| Prop | Type | Description |
-|------|------|-------------|
-| value | string | The numeric value to display |
-| style | TextStyle | Style for the digits |
-| separatorStyle | TextStyle | Style for non-numeric characters (like commas, decimals) |
-| animationConfig | AnimationConfig | Configuration for animations |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | string | - | The numeric value to display |
+| `style` | TextStyle | - | Style for the digits |
+| `separatorStyle` | TextStyle | - | Style for non-numeric characters (like commas, decimals) |
+| `autoFitText` | boolean | false | Enable/disable text auto-fitting based on ascender |
+| `animationConfig` | AnimationConfig | - | Configuration for animations |
 
 ### AnimationConfig Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| enabled | boolean | true | Enable/disable animations |
-| animateOnMount | boolean | true | Animate on initial render |
-| digitDelay | number | 20 | Delay between digit animations (ms) |
-| mass | number | 0.8 | Spring animation mass |
-| stiffness | number | 75 | Spring animation stiffness |
-| damping | number | 15 | Spring animation damping |
-| reduceMotion | ReduceMotion | System | Respect system's reduce motion settings |
+| `enabled` | boolean | true | Enable/disable animations |
+| `animateOnMount` | boolean | true | Animate on initial render |
+| `digitDelay` | number | 20 | Delay between digit animations (ms) |
+| `mass` | number | 0.8 | Spring animation mass |
+| `stiffness` | number | 75 | Spring animation stiffness |
+| `damping` | number | 15 | Spring animation damping |
+| `reduceMotion` | ReduceMotion | System | Respect system's reduce motion settings |
 
 ## Examples 🎯
 
@@ -129,4 +130,3 @@ MIT
 ---
 
 Made with ❤️ for the React Native community.
-
