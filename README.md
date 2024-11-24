@@ -1,4 +1,4 @@
-# RN Number Flow 🔢
+# React Native Number Flow 🔢
 
 [![npm version](https://badge.fury.io/js/rn-number-flow.svg)](https://badge.fury.io/js/rn-number-flow)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
